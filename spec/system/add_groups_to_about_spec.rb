@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require_relative "page_objects/components/additional_about_groups"
 
 RSpec.describe "Additional About Groups", type: :system do

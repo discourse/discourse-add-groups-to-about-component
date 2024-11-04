@@ -35,6 +35,7 @@ export default class AdditionalAboutGroups extends Component {
           group.members = await this.loadGroupMembers(group.name);
           return group;
         } catch (error) {
+          // eslint-disable-next-line no-console
           console.error(
             `Error loading members for group ${group.name}:`,
             error
