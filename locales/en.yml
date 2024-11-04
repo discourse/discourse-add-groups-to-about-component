@@ -1,0 +1,5 @@
+en:
+  theme_metadata:
+    description: Add groups to the about page
+    settings:
+      example_setting: A description of a setting.
