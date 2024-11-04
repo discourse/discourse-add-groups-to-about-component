@@ -78,12 +78,10 @@ export default class AdditionalAboutGroups extends Component {
         {{#each this.groups as |group|}}
           <section class="about__{{group.name}} --custom-group">
             <h3>{{this.groupName group}}</h3>
-            <div class="about-page-users-list">
-              <AboutPageUsers
-                @users={{group.members}}
-                @truncateAt={{settings.show_initial_members}}
-              />
-            </div>
+            <AboutPageUsers
+              @users={{group.members}}
+              @truncateAt={{settings.show_initial_members}}
+            />
           </section>
         {{/each}}
       {{/if}}
