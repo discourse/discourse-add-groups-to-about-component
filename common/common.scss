@@ -1,6 +1,9 @@
 .about__main-content {
   .--custom-group {
     margin-top: 3em;
+    h3 {
+      text-transform: capitalize;
+    }
   }
 }
 

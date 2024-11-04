@@ -7,7 +7,7 @@ import ConditionalLoadingSpinner from "discourse/components/conditional-loading-
 
 export default class AdditionalAboutGroups extends Component {
   @service store;
-
+  @service site;
   @tracked groups = [];
   @tracked loading = false;
 
@@ -17,7 +17,7 @@ export default class AdditionalAboutGroups extends Component {
   }
 
   groupName(group) {
-    return group.full_name || group.name;
+    return group.full_name || group.name.replace(/_/g, " ");
   }
 
   @action
@@ -25,20 +25,29 @@ export default class AdditionalAboutGroups extends Component {
     this.loading = true;
     try {
       const groupsSetting = settings.about_groups?.split("|").map(Number) || [];
-      const allGroups = await this.store.findAll("group");
 
-      const groupsWithMembers = await Promise.all(
-        allGroups
-          .filter((group) => groupsSetting.includes(group.id))
-          .map(async (group) => {
-            group.members = await this.loadGroupMembers(group.name);
-            return group;
-          })
+      const groupsToFetch = this.site.groups.filter((group) =>
+        groupsSetting.includes(group.id)
       );
 
-      this.groups = groupsWithMembers.filter(
-        (group) => group.members.length > 0
+      const groupPromises = groupsToFetch.map(async (group) => {
+        try {
+          group.members = await this.loadGroupMembers(group.name);
+          return group;
+        } catch (error) {
+          console.error(
+            `Error loading members for group ${group.name}:`,
+            error
+          );
+          return null;
+        }
+      });
+
+      const groupsWithMembers = (await Promise.all(groupPromises)).filter(
+        (group) => group && group.members.length > 0
       );
+
+      this.groups = groupsWithMembers;
     } catch (error) {
       console.error("Error loading groups:", error);
       this.groups = [];
