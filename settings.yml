@@ -1,2 +1,16 @@
-example_setting:
-  default: true
+about_groups:
+  default: ""
+  type: list
+  list_type: group
+
+show_initial_members:
+  default: 6
+  type: integer
+
+hide_admins:
+  default: false
+  type: bool
+
+hide_moderators:
+  default: false
+  type: bool

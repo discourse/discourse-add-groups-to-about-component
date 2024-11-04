@@ -2,4 +2,7 @@ en:
   theme_metadata:
     description: Add groups to the about page
     settings:
-      example_setting: A description of a setting.
+      about_groups: "Groups to show on the about page, groups with 0 members are automatically hidden."
+      show_initial_members: "Number of members to show on initial load for each group, others will be hidden behing a 'show more' button."
+      hide_admins: "Hide the admin group from the about page."
+      hide_moderators: "Hide the moderator group from the about page."

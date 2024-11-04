@@ -2,4 +2,4 @@
 
 **Theme Summary**
 
-For more information, please see: **url to meta topic**
+Add more groups of users to your Discourse community's about page
