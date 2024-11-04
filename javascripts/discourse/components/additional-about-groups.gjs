@@ -64,7 +64,6 @@ export default class AdditionalAboutGroups extends Component {
     <ConditionalLoadingSpinner @condition={{this.loading}}>
       {{#if this.groups}}
         {{#each this.groups as |group|}}
-          {{log group}}
           <section class="about__{{group.name}} --custom-group">
             <h3>{{this.groupName group}}</h3>
             <div class="about-page-users-list">
