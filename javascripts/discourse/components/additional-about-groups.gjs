@@ -17,7 +17,7 @@ export default class AdditionalAboutGroups extends Component {
   }
 
   groupName(group) {
-    return group.full_name || group.name.replace(/_/g, " ");
+    return group.name.replace(/_/g, " ");
   }
 
   @action

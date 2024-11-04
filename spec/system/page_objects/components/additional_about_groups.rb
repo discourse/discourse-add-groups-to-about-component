@@ -18,14 +18,6 @@ module PageObjects
       def has_no_group_with_member?(username)
         has_no_css?(".about-page-users-list .user-info[data-username='#{username}']")
       end
-
-      def has_loading_spinner?
-        has_css?(".loading-container .spinner")
-      end
-
-      def has_no_loading_spinner?
-        has_no_css?(".loading-container .spinner")
-      end
     end
   end
 end

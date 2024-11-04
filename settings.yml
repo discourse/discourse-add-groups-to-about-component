@@ -14,3 +14,7 @@ hide_admins:
 hide_moderators:
   default: false
   type: bool
+
+capitalize_names:
+  default: true
+  type: bool
