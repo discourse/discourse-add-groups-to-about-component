@@ -49,6 +49,7 @@ export default class AdditionalAboutGroups extends Component {
 
       this.groups = groupsWithMembers;
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error("Error loading groups:", error);
       this.groups = [];
     } finally {
@@ -64,6 +65,7 @@ export default class AdditionalAboutGroups extends Component {
       const data = await response.json();
       return data.members || [];
     } catch (error) {
+      // eslint-disable-next-line no-console
       console.error(`Error loading members for group ${groupName}:`, error);
       return [];
     }
