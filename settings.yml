@@ -7,14 +7,6 @@ show_initial_members:
   default: 6
   type: integer
 
-hide_admins:
-  default: false
-  type: bool
-
-hide_moderators:
-  default: false
-  type: bool
-
 capitalize_names:
   default: true
   type: bool
