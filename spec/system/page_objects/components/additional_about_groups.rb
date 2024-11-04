@@ -18,11 +18,11 @@ module PageObjects
       end
 
       def has_loading_spinner?
-        has_css?('.loading-container .spinner')
+        has_css?(".loading-container .spinner")
       end
 
       def has_no_loading_spinner?
-        has_no_css?('.loading-container .spinner')
+        has_no_css?(".loading-container .spinner")
       end
     end
   end
