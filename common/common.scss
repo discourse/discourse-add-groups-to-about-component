@@ -1,5 +1,6 @@
 .about__main-content {
   .--custom-group {
+    max-width: unset !important; // ovverides ridiculously specific core style
     margin-top: 3em;
     h3 {
       a {
