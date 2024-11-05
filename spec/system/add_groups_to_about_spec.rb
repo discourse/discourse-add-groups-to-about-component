@@ -18,8 +18,8 @@ RSpec.describe "Additional About Groups", type: :system do
   it "renders the groups specified in the about_groups theme setting" do
     visit "/about"
 
-    expect(about_groups_component).to have_group_with_name("Group1")
-    expect(about_groups_component).to have_group_with_name("Group2")
+    expect(about_groups_component).to have_group_with_name("group1")
+    expect(about_groups_component).to have_group_with_name("group2")
     expect(about_groups_component).to have_group_with_member("user1")
     expect(about_groups_component).to have_group_with_member("user2")
   end
@@ -30,8 +30,8 @@ RSpec.describe "Additional About Groups", type: :system do
 
     visit "/about"
 
-    expect(about_groups_component).to have_group_with_name("Group1")
-    expect(about_groups_component).to have_no_group_with_name("Group2")
+    expect(about_groups_component).to have_group_with_name("group1")
+    expect(about_groups_component).to have_no_group_with_name("group2")
     expect(about_groups_component).to have_group_with_member("user1")
     expect(about_groups_component).to have_no_group_with_member("user2")
   end
