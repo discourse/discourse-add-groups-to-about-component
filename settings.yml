@@ -20,5 +20,5 @@ order_additional_groups:
     - "order of theme setting"
 
 show_group_description:
-  default: true
+  default: false
   type: bool
