@@ -102,7 +102,7 @@ export default class AdditionalAboutGroups extends Component {
   <template>
     <ConditionalLoadingSpinner @condition={{this.loading}}>
       {{#if this.groups}}
-        {{#each this.groups as |group|}}{{log group}}
+        {{#each this.groups as |group|}}
           <section
             class="about__{{group.name}}
               --custom-group
