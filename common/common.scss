@@ -1,9 +1,28 @@
 .about__main-content {
   .--custom-group {
     margin-top: 3em;
-    @if $capitalize-names == "true" {
+    h3 {
+      a {
+        color: var(--primary);
+        &:hover {
+          color: var(--tertiary);
+        }
+      }
+      @if $capitalize-names == "true" {
+        &:first-letter {
+          text-transform: capitalize;
+        }
+      }
+    }
+
+    p {
+      margin-top: 0;
+      color: var(--primary-high);
+    }
+
+    &.--has-description {
       h3 {
-        text-transform: capitalize;
+        margin-bottom: 0;
       }
     }
   }

@@ -10,3 +10,15 @@ show_initial_members:
 capitalize_names:
   default: true
   type: bool
+
+order_additional_groups:
+  default: "alphabetically"
+  type: enum
+  choices:
+    - "alphabetically"
+    - "order of creation"
+    - "order of theme setting"
+
+show_group_description:
+  default: true
+  type: bool
