@@ -5,6 +5,7 @@ import { service } from "@ember/service";
 import { htmlSafe } from "@ember/template";
 import AboutPageUsers from "discourse/components/about-page-users";
 import ConditionalLoadingSpinner from "discourse/components/conditional-loading-spinner";
+import { ajax } from "discourse/lib/ajax";
 
 export default class AdditionalAboutGroups extends Component {
   @service store;
@@ -75,9 +76,8 @@ export default class AdditionalAboutGroups extends Component {
 
   async loadGroupDetails(groupName) {
     try {
-      const response = await fetch(`/g/${groupName}.json`);
-      const data = await response.json();
-      return data.group;
+      const response = await ajax(`/g/${groupName}`);
+      return response.group;
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error(`Error loading details for group ${groupName}:`, error);
@@ -87,9 +87,8 @@ export default class AdditionalAboutGroups extends Component {
 
   async loadGroupMembers(groupName) {
     try {
-      const response = await fetch(`/g/${groupName}/members.json`);
-      const data = await response.json();
-      return data.members || [];
+      const response = await ajax(`/g/${groupName}/members`);
+      return response.members || [];
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error(`Error loading members for group ${groupName}:`, error);
