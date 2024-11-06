@@ -88,7 +88,7 @@ export default class AdditionalAboutGroups extends Component {
   async loadGroupMembers(groupName) {
     try {
       const response = await fetch(
-        `/g/${groupName}/members.json?offset=0&order=&asc=true`
+        `/g/${groupName}/members.json`
       );
       const data = await response.json();
       return data.members || [];
