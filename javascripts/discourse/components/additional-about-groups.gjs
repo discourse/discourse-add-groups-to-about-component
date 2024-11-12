@@ -87,7 +87,7 @@ export default class AdditionalAboutGroups extends Component {
 
   async loadGroupMembers(groupName) {
     try {
-      const response = await ajax(`/g/${groupName}/members`);
+      const response = await ajax(`/g/${groupName}/members?asc=true`);
       return response.members || [];
     } catch (error) {
       // eslint-disable-next-line no-console
