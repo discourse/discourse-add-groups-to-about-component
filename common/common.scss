@@ -2,13 +2,16 @@
   .--custom-group {
     max-width: unset !important; // ovverides ridiculously specific core style
     margin-top: 3em;
+
     h3 {
       a {
         color: var(--primary);
+
         &:hover {
           color: var(--tertiary);
         }
       }
+
       @if $capitalize-names == "true" {
         &::first-letter {
           text-transform: capitalize;
