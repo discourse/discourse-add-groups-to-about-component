@@ -15,11 +15,19 @@ RSpec.describe "Additional About Groups", type: :system do
     theme.save!
   end
 
+  it "does not render extra groups when the feature is enabled in core" do
+    SiteSetting.show_additional_about_groups = true
+
+    visit "/about"
+
+    expect(about_groups_component).to have_no_group_with_name("Group1")
+  end
+
   it "renders the groups specified in the about_groups theme setting" do
     visit "/about"
 
-    expect(about_groups_component).to have_group_with_name("group1")
-    expect(about_groups_component).to have_group_with_name("group2")
+    expect(about_groups_component).to have_group_with_name("Group1")
+    expect(about_groups_component).to have_group_with_name("Group2")
     expect(about_groups_component).to have_group_with_member("user1")
     expect(about_groups_component).to have_group_with_member("user2")
   end
@@ -30,8 +38,8 @@ RSpec.describe "Additional About Groups", type: :system do
 
     visit "/about"
 
-    expect(about_groups_component).to have_group_with_name("group1")
-    expect(about_groups_component).to have_no_group_with_name("group2")
+    expect(about_groups_component).to have_group_with_name("Group1")
+    expect(about_groups_component).to have_no_group_with_name("Group2")
     expect(about_groups_component).to have_group_with_member("user1")
     expect(about_groups_component).to have_no_group_with_member("user2")
   end

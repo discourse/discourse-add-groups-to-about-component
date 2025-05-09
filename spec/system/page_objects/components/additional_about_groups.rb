@@ -8,7 +8,7 @@ module PageObjects
       end
 
       def has_no_group_with_name?(name)
-        has_no_css?(".about__#{name} h3", text: name)
+        has_no_css?(".about__#{name.downcase} h3", text: name)
       end
 
       def has_group_with_member?(username)
