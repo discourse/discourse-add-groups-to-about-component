@@ -1,5 +1,3 @@
-# Add Groups to About
+# DEPRECATED
 
-**Theme Summary**
-
-Add more groups of users to your Discourse community's about page
+This feature is now the default in Discourse core. The theme component is no longer required.
